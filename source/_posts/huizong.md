@@ -14,7 +14,7 @@ comments: true
 - [ShaderToy](https://www.shadertoy.com/) Shader着色器学习网站
 - [CodeCademy](https://www.codecademy.com/) 在线编程网站
 - [Coursera](https://www.coursera.org/) 斯坦福大学两位计算机教授创办的在线教育平台 在网上学习全世界知名高校最好的课程
-- [我要自学网] (http://www.51zxw.net/) 能够学习各种技能
+- [我要自学网](http://www.51zxw.net/) 能够学习各种技能
 <!--more-->
 
 # 优秀的论坛

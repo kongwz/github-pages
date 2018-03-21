@@ -4,9 +4,9 @@ title: Unity性能优化1 2 3
 date: 2018-3-18 22:36:52
 author: kongwz
 tags:
-  - 汇总
+  - Unity
 categories:
-  - 汇总
+  - Unity
 comments: true
 ---
 
@@ -18,13 +18,14 @@ comments: true
 -------
 
 ## 资源加载
+<!--more-->
 > 1. 常用的资源应避免频繁加载和卸载，可以考虑将其常驻于内存
 > 2. 如果要使用加载AssetBundle，尽量使用 New WWW加载，而非LoadFromMemory方式，LoadFromMemory加载效率比New WWW低，除非有特殊需求
 
 -------
 
 #### 场景加载优化
-#####简化资源
+##### 简化资源
 > 1. 将项目中RGBA32和RGBA16的贴图转化成ETC1纹理进行加载，这样既可以减少App包体大小也可以提高加载速度
 > 2. 对场景中网格数据进行压缩，简化场景中的网格数据，减少不必要的数据占用，可以尝试使用AssetStore中的SimpleLOD等简化工具堆网络模型简化
 > 3. 根据机型采用不同的渲染LOD，降低低端设备的渲染压力
@@ -105,7 +106,7 @@ comments: true
 > 4.使用“池”不只是UI上的组建场景中的动态资源也可以使用，减少Instantiate次数，还有就是更改位置要比隐藏显示要好`
 
 #### GPU优化
-#####减少顶点数量，简化计算复杂度。
+##### 减少顶点数量，简化计算复杂度。
 > 1.保持材质的数目尽可能少。这使得Unity更容易进行批处理。
 > 2.使用纹理图集（一张大贴图里包含了很多子贴图）来代替一系列单独的小贴图。它们可以更快地被加载，具有很少的状态转换，而且批处理更友好。
 > 3.如果使用了纹理图集和共享材质，使用Renderer.sharedMaterial 来代替Renderer.material 。
@@ -119,5 +120,7 @@ comments: true
 > 2.使用mipmap
 
 
+### 思维导图
+![unity优化](http://ophmqxrq8.bkt.clouddn.com/Unity%E4%BC%98%E5%8C%96.png)
 
 

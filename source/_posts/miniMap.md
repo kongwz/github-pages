@@ -1,8 +1,23 @@
 ---
-title: miniMap
+title: 吃鸡手游小地图开发
 date: 2018-06-21 17:42:18
+author: kongwz
 tags:
+  - Unity
+categories:
+  - Unity
+comments: true
 ---
+### 需求：*做一个吃鸡游戏的小地图，包含放大缩小，拖动，标记点，自己位置与标记位置连线，显示周围敌人的声音（脚步，开火等）*
+**这里包含一个需求，就是再地图放大的时候要以自己人物的位置为基准点，也就是说放大到最后需要吧自己的人物移动到屏幕的中间，当然再缩小，还是按照这个思路来，如果放大后发生拖动，则以拖动后地图显示区域的中心为基准点缩放。**有点绕……看一下最终实现效果图。
+
+![最终效果](http://ophmqxrq8.bkt.clouddn.com/5.gif)
+
+
+<!--more-->
+
+### 下面 是全部的代码，至于其他需求，拖动边缘检测、标记、连线、声音等就不在这里一一细说了。
+
 ```bash
 using System.Collections;
 using System.Collections.Generic;
@@ -126,5 +141,25 @@ public class Test003 : MonoBehaviour , IDragHandler, IPointerDownHandler, IPoint
     #endregion
 
 }
+
+```
+
+-------
+
+### 2.小地图人物移动，对应地图图片发生位移主要代码
+
+```bash
+
+int _sceneWidth = 1500;
+    int _sceneHigth = 1500;
+
+    float widthrate = _mapImage.rectTransform.sizeDelta.x / _sceneWidth
+
+    float hightrate = _mapImage.rectTransform.sizeDelta.y / _sceneHigth
+
+    float RadarMapX = gloable.role.position.x * widthrate * -1;
+    float RadarMapY = gloable.role.position.y * hightrate * -1;
+
+    _mapImage.rectTransform.anchoredPosition = Vector2.New(RadarMapX + _mapImage.rectTransform.sizeDelta.x / 2 ,RadarMapY + _mapImage.rectTransform.sizeDelta.y / 2)
 
 ```

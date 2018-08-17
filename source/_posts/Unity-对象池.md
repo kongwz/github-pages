@@ -267,4 +267,4 @@ public class PoolUtil  {
 
 好久没发自己拍的照片了，哈哈前段时间去 浙江西塘 拍了一些照片，暂且发一张，毕竟这个一篇技术文章（脸皮厚）
 
-![西塘](/images/images/xitang_photo.png)
+![西塘](http://ophmqxrq8.bkt.clouddn.com/DSCF1843.png)

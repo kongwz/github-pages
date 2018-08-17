@@ -43,7 +43,7 @@ comments: true
 
 > 效果
 
-![](/images/autoScript.gif)
+![](http://ophmqxrq8.bkt.clouddn.com/autoScript.gif)
 
 > 脚本
 
@@ -80,6 +80,28 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 using System.IO;
+
+public class PrefabToScriptTemplate
+{
+    public static string UIClass =
+        @"using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
+using System;
+public class #类名# : MonoBehaviour
+{
+   //auto
+   #预设成员变量#
+   public void Start()
+   {
+       #查找#
+       #事件#
+   }
+   #事件方法#
+   //这里可以写一些 框架父类的一些方法 和参数设置
+}";
+}
+
 public class ClientPrefabToScript : Editor {
 
     public static string _ObjName = "";
@@ -95,11 +117,12 @@ public class ClientPrefabToScript : Editor {
     private static string SliderNameStr = "Slider_";
     private static string ScrollviewNameStr = "Scroll_";
     private static string ScrollbarNameStr = "Scrollbar_";
-
+    private static Transform currSelectObj = null;
     private static string _ObjPathName = "";
 
     [MenuItem("Client/自动生成客户端UI代码")]
     public static void BuildUICode() {
+        ClearData();
         GameObject selectObj = null;
         if (Selection.activeObject == null)
         {
@@ -111,6 +134,7 @@ public class ClientPrefabToScript : Editor {
         }
         else {
             selectObj = (GameObject)Selection.activeObject;
+            currSelectObj = selectObj.transform;
             if (!ScriptDetection(selectObj.name + "View.cs"))
             {
                 Debug.Log("项目中已经存在这个脚本了，给预设换个名字试试吧...");
@@ -121,7 +145,7 @@ public class ClientPrefabToScript : Editor {
                 CreateScript(selectObj.name + "View");
             }
         }
-        ClearData();
+        
     }
 
     public static void ClearData() {
@@ -190,45 +214,68 @@ public class ClientPrefabToScript : Editor {
         if (tf != null) {
             for (int i = 0; i < tf.childCount; i++)
             {
-                _ObjPathName += tf.GetChild(i).name;
-                if (tf.GetChild(i).name.StartsWith(BtnNameStr)) {
+                bool b = false;
+                if (tf.GetChild(i).name.StartsWith(BtnNameStr))
+                {
+                    ObjPathHandle(tf.GetChild(i));
                     NameHandle("Button", tf.GetChild(i).name);
                     _eventStr += "m_" + tf.GetChild(i).name + ".onClick.AddListener(" + tf.GetChild(i).name + "OnClick);\n    ";
                     _eventFunStr += "private void " + tf.GetChild(i).name + "OnClick() \n   {\n     \n   }\n     ";
                 }
                 else if (tf.GetChild(i).name.StartsWith(ImageNameStr))
                 {
+                    ObjPathHandle(tf.GetChild(i));
                     NameHandle("Image", tf.GetChild(i).name);
                 }
                 else if (tf.GetChild(i).name.StartsWith(TextNameStr))
                 {
+                    ObjPathHandle(tf.GetChild(i));
                     NameHandle("Text", tf.GetChild(i).name);
                 }
                 else if (tf.GetChild(i).name.StartsWith(ToggleNameStr))
                 {
+                    ObjPathHandle(tf.GetChild(i));
                     NameHandle("Toggle", tf.GetChild(i).name);
-                    _eventStr += "m_" + tf.GetChild(i).name + ".onClick.AddListener(" + tf.GetChild(i).name + "OnClick);\n    ";
-                    _eventFunStr += "private void " + tf.GetChild(i).name + "OnClick() \n   {\n     \n   }\n     ";
+                    _eventStr += "m_" + tf.GetChild(i).name + ".onValueChanged.AddListener(" + tf.GetChild(i).name + "OnChanged);\n    ";
+                    _eventFunStr += "private void " + tf.GetChild(i).name + "OnChanged(bool value) \n   {\n     \n   }\n     ";
                 }
                 else if (tf.GetChild(i).name.StartsWith(SliderNameStr))
                 {
+                    ObjPathHandle(tf.GetChild(i));
                     NameHandle("Slider", tf.GetChild(i).name);
-                    _eventStr += "m_" + tf.GetChild(i).name + ".onClick.AddListener(" + tf.GetChild(i).name + "OnClick);\n    ";
-                    _eventFunStr += "private void " + tf.GetChild(i).name + "OnClick() \n   {\n     \n   }\n     ";
+                    _eventStr += "m_" + tf.GetChild(i).name + ".onValueChanged.AddListener(" + tf.GetChild(i).name + "OnChanged);\n    ";
+                    _eventFunStr += "private void " + tf.GetChild(i).name + "OnChanged() \n   {\n     \n   }\n     ";
                 }
                 else if (tf.GetChild(i).name.StartsWith(ScrollviewNameStr))
                 {
+                    ObjPathHandle(tf.GetChild(i));
                     NameHandle("Scrollview", tf.GetChild(i).name);
                 }
                 else if (tf.GetChild(i).name.StartsWith(ScrollbarNameStr))
                 {
+                    ObjPathHandle(tf.GetChild(i));
                     NameHandle("Scrollbar", tf.GetChild(i).name);
                 }
-                if (tf.GetChild(i).childCount > 0) {
-                    _ObjPathName += tf.GetChild(i).name + "/";
+               
+                if (tf.GetChild(i).childCount > 0)
+                {
+                    //_ObjPathName += "/";
                     GetObjsDefintion(tf.GetChild(i));
-                }
+                }               
             }
+        }
+    }
+
+    private static void ObjPathHandle(Transform transform) {
+        if (_ObjPathName.Equals(""))
+        {
+            _ObjPathName = transform.name;
+        }
+        else {
+            _ObjPathName = transform.name + "/" + _ObjPathName;
+        }
+        if (transform.parent != currSelectObj) {
+            ObjPathHandle(transform.parent);
         }
     }
 
@@ -236,6 +283,7 @@ public class ClientPrefabToScript : Editor {
         _ObjName += "protected " + type + " m_" + name + " = null;\n    ";
         _ObjTypeList.Add("m_" + name, type);
         _ObjPathList.Add("m_" + name, _ObjPathName);
+        _ObjPathName = "";
     }
 
     public static bool ScriptDetection(string name) {

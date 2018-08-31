@@ -3,9 +3,9 @@ title: unity shader入门语法
 date: 2017-05-17 17:14:52
 author: kongwz
 tags:
-  - unity shader
+  - Unity Shader
 categories:
-  - unity shader
+  - Unity
 comments: true
 ---
 

@@ -65,6 +65,10 @@ pagination_dir: page
 ## Themes: https://hexo.io/themes/
 theme: next
 
+# Social links
+social:
+  GitHub: https://github.com/kongwz
+
 baidu_url_submit:
   count: 5 
   host: http://kongwz.cn 

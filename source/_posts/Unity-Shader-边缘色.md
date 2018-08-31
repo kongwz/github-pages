@@ -4,9 +4,9 @@ title: Unity-Shader-边缘色
 date: 2018-06-25 18:04:54
 author: kongwz
 tags:
-  - unity shader
+  - Unity Shader
 categories:
-  - unity shader
+  - Unity
 comments: true
 ---
 ## 边缘着色。代码控制改变颜色和控制开关
@@ -68,6 +68,8 @@ Shader "Custom/bianyuancolor"
 }
 
 ```
+
+saturate函数（saturate(x)的作用是如果x取值小于0，则返回值为0。如果x取值大于1，则返回值为1。若x在0到1之间，则直接返回x的值
 
 C# 代码
 

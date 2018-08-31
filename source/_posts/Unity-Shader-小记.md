@@ -2,9 +2,9 @@
 title: Unity-Shader-小记
 date: 2018-06-25 15:18:33
 tags:
-  - unity shader
+  - Unity Shader
 categories:
-  - unity shader
+  - Unity
 comments: true
 ---
 

@@ -274,4 +274,4 @@ float4 frag(v2f i): SV_Target{
 ![](http://ophmqxrq8.bkt.clouddn.com/diffuse3.png)
 
 
-本文所写内容参考《UnityShader 入门精要》。
+*本文所写内容参考《UnityShader 入门精要》。*

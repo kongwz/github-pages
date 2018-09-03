@@ -158,3 +158,7 @@ TEXCOORD0~TEXCOORD7 | 通常用于输出文理坐标，不是必须的
 语义 | 描述
 ---|---
 SV_Target | 输出值将会存储到渲染目标（render target）中，等同于Direct9中的COLOR
+
+
+
+*本文所写内容参考《UnityShader 入门精要》。*

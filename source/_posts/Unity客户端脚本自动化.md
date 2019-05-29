@@ -43,7 +43,7 @@ comments: true
 
 > 效果
 
-![](http://ophmqxrq8.bkt.clouddn.com/autoScript.gif)
+![](https://blogimages-1253307164.cos.ap-shanghai.myqcloud.com/autoScript.gif)
 
 > 脚本
 

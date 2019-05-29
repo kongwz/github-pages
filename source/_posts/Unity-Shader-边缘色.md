@@ -107,8 +107,8 @@ C# 代码
 
 ### 先看一下关闭打开效果图
 
-![效果](http://ophmqxrq8.bkt.clouddn.com/bianyuanse.gif)
+![效果](https://blogimages-1253307164.cos.ap-shanghai.myqcloud.com/bianyuanse.gif)
 
 
 ### 代码控制颜色
-![效果](http://ophmqxrq8.bkt.clouddn.com/bianyuanse1.gif)
+![效果](https://blogimages-1253307164.cos.ap-shanghai.myqcloud.com/bianyuanse1.gif)

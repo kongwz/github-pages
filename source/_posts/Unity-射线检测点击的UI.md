@@ -96,7 +96,7 @@ public class ClickUIPathTools : MonoBehaviour
 
 > ### 运行效果
 
-![运行效果](http://ophmqxrq8.bkt.clouddn.com/raycast.gif)
+![运行效果](https://blogimages-1253307164.cos.ap-shanghai.myqcloud.com/raycast.gif)
 
 
 ---

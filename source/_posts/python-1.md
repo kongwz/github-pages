@@ -18,7 +18,7 @@ comments: true
 ### 使用了 BeautifulSoup 这个包 写爬虫很方便 有时间要好好研究研究
 
 ### 这是要爬取的页面
-![要爬取的页面](http://ophmqxrq8.bkt.clouddn.com/python2.png)
+![要爬取的页面](https://blogimages-1253307164.cos.ap-shanghai.myqcloud.com/python2.png)
 <!--more-->
 ``` bash
 import urllib.request
@@ -65,5 +65,5 @@ for link in links:
 ```
 
 ## 爬取结果
-![保存到本地的爬取结果](http://ophmqxrq8.bkt.clouddn.com/python1.png)
+![保存到本地的爬取结果](https://blogimages-1253307164.cos.ap-shanghai.myqcloud.com/python1.png)
 

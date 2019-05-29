@@ -88,7 +88,7 @@ public class test1 : MonoBehaviour {
 
 输出：
 
-![](http://ophmqxrq8.bkt.clouddn.com/201809031759.png)
+![](https://blogimages-1253307164.cos.ap-shanghai.myqcloud.com/201809031759.png)
 
 那么现在改一下代码，在Start中调用完了协程后，将这个monobehaviour的enable置为false，看一下输出结果
 
@@ -161,7 +161,7 @@ public class test1 : MonoBehaviour {
 
 结果：
 
-![](http://ophmqxrq8.bkt.clouddn.com/201809031803.png)
+![](https://blogimages-1253307164.cos.ap-shanghai.myqcloud.com/201809031803.png)
 
 也就是说我们在将monobehaviour的enable置程false后并没能终止协程，协程还是在运行，但是如果我们将GameObject的SetActive(false)后协程和monobehaviour和协程都会停止。
 
@@ -169,4 +169,4 @@ public class test1 : MonoBehaviour {
 
 最后 看一下Unity Monobehaviour的生命周期图
 
-![](http://ophmqxrq8.bkt.clouddn.com/o_exeOrder.png)
+![](https://blogimages-1253307164.cos.ap-shanghai.myqcloud.com/o_exeOrder.png)

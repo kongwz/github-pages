@@ -29,7 +29,7 @@ urllib.error.HTTPError: HTTP Error 403: Forbidden
 所以接下来，我们需要让爬虫模拟成浏览器
 任意打开一个网页，比如打开_百度_,然后按F12，此时会出现一个窗口，我们切换到Network标签页，然后点击刷新网站，选中弹出框左侧的“www.baidu.com”，即下图所示：
 
-![找到User-Agent信息](http://ophmqxrq8.bkt.clouddn.com/herders.png)
+![找到User-Agent信息](https://blogimages-1253307164.cos.ap-shanghai.myqcloud.com/herders.png)
 
 往下拖动 我们会看到“User-Agent”字样的一串信息，没错 这就是我们想要的东西。我们将其复制下来。
 此时我们得到的信息是："Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36"

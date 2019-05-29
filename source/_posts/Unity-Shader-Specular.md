@@ -11,7 +11,7 @@ comments: true
 
 先看一下基本光照模型中的高光反射部分的计算公式：
 
-![](http://ophmqxrq8.bkt.clouddn.com/specular1.png)
+![](https://blogimages-1253307164.cos.ap-shanghai.myqcloud.com/specular1.png)
 
 ## 逐顶点光照实现 高光反射
 
@@ -91,7 +91,7 @@ fixed4 frag(v2f i) : SV_Target{
 
 > 效果
 
-![](http://ophmqxrq8.bkt.clouddn.com/specular2.png)
+![](https://blogimages-1253307164.cos.ap-shanghai.myqcloud.com/specular2.png)
 
 **使用逐顶点着色器的方法得到的高光效果有比较大的问题，可以从效果图中看到有明显的不平滑，因为高光反射部分的计算是非线性的，而在顶点着色器中计算光照在进行插值的过程是线性的，破换了原计算的非线性关系。**
 > 代码
@@ -205,7 +205,7 @@ fixed4 frag(v2f i) : SV_Target{
 
 > 效果：
 
-![](http://ophmqxrq8.bkt.clouddn.com/specular3.png)
+![](https://blogimages-1253307164.cos.ap-shanghai.myqcloud.com/specular3.png)
 
 可以看出，使用逐像素实现高光反射，使得高光效果更加平滑
 
@@ -281,7 +281,7 @@ Shader "Unlit/Specular_2"
 
 > 公式：
 
-![](http://ophmqxrq8.bkt.clouddn.com/specular6.png)
+![](https://blogimages-1253307164.cos.ap-shanghai.myqcloud.com/specular6.png)
 
 
 修改逐像素实现高光反射的片元着色器的代码：
@@ -302,7 +302,7 @@ fixed4 frag(v2f i) : SV_Target{
 
 > 效果：
 
-![](http://ophmqxrq8.bkt.clouddn.com/specular4.png)
+![](https://blogimages-1253307164.cos.ap-shanghai.myqcloud.com/specular4.png)
 
 > 全部代码
 
@@ -378,7 +378,7 @@ Shader "Unlit/Specular_3"
  三种类型高光反射的效果对比
 从左到右分别是 逐顶点高光反射、逐像素高光反射、Blinn-Phong光照模型
 
-![](http://ophmqxrq8.bkt.clouddn.com/specular5.png)
+![](https://blogimages-1253307164.cos.ap-shanghai.myqcloud.com/specular5.png)
 
 可以看出，Blinn-Phong模型的高光反射部分看起来更大更亮，在实际渲染中，绝大多数情况也都会选择Blinn-Phong光照模型
 

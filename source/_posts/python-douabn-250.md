@@ -64,4 +64,4 @@ print(init_url())
 
 ```
 ### 效果
-![爬取结果](http://ophmqxrq8.bkt.clouddn.com/douban1.png)
+![爬取结果](https://blogimages-1253307164.cos.ap-shanghai.myqcloud.com/douban1.png)

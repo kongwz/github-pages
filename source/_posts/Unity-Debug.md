@@ -54,7 +54,7 @@ We are <color=green>green</color> with envy
 
 > 效果
 
-![运行效果](http://ophmqxrq8.bkt.clouddn.com/debug.png)
+![运行效果](https://blogimages-1253307164.cos.ap-shanghai.myqcloud.com/debug.png)
 
 ### 以下是具体封装代码
 

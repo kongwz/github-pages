@@ -17,7 +17,7 @@ comments: true
 
 在Project面板里选中一个资源，然后在Inspector面板中设置这个资源的AssetBundleName
 
-![设置AssetBundleName](http://ophmqxrq8.bkt.clouddn.com/BuildAssetBundle1.png)
+![设置AssetBundleName](https://blogimages-1253307164.cos.ap-shanghai.myqcloud.com/BuildAssetBundle1.png)
 
 <!--more-->
 
@@ -93,15 +93,15 @@ public class BundleTools : Editor {
 ### 打包工具
 
 使用AssetBundleBrowser可以判断是否有同一个资源被打包进了两个Bundle 中，可以方便的进行检查AssetBundle的依赖关系。
-![](http://ophmqxrq8.bkt.clouddn.com/BuildAssetBundle2.png)
+![](https://blogimages-1253307164.cos.ap-shanghai.myqcloud.com/BuildAssetBundle2.png)
 
 我这里的Cube和Capsule共同使用了一个材质球，然后把他们两个分别打包，并将材质球打包成newbundle，这样Cube和Capsule会共同依赖newbundle，可以看到途中Capsule的依赖关系。如果不将材质球单独打包的话会是这样的情况。
-![](http://ophmqxrq8.bkt.clouddn.com/BuildAssetBundle3.png)
+![](https://blogimages-1253307164.cos.ap-shanghai.myqcloud.com/BuildAssetBundle3.png)
 
 可以看到两个资源都会引用相同的材质球和贴图，导致资源重复。
 
 出现这种情况可以，右键AssetBundle名字*Add Sibling > New bundle*然后选择有黄色叹号的bundle，将他们带黄色叹号的资源拖入新bundle中，就会发现使用相同资源的budle都会多了一个资源依赖
-![](http://ophmqxrq8.bkt.clouddn.com/BuildAssetBundle4.png)
+![](https://blogimages-1253307164.cos.ap-shanghai.myqcloud.com/BuildAssetBundle4.png)
 
 
 ### 打包策略

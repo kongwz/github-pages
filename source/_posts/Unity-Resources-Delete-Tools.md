@@ -169,6 +169,6 @@ public class ResourceTools : Editor {
 
 来看一下，现在它正给我干活呢。
 
-![](http://ophmqxrq8.bkt.clouddn.com/resourceDelete.png)
+![](https://blogimages-1253307164.cos.ap-shanghai.myqcloud.com/resourceDelete.png)
 
 **就先写到这里吧，枸杞水喝完了，去接水了...下次再聊**

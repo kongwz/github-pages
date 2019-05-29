@@ -10,7 +10,7 @@ comments: true
 ---
 
 先来看一下基本光照模型中的漫反射部分的计算公式。
-![慢反射公式](http://ophmqxrq8.bkt.clouddn.com/manfanshe.png)
+![慢反射公式](https://blogimages-1253307164.cos.ap-shanghai.myqcloud.com/manfanshe.png)
 
 ## 逐顶点光照实现
 
@@ -145,7 +145,7 @@ Shader "Unlit/Study_2"
 
 ```
 
-![](http://ophmqxrq8.bkt.clouddn.com/diffuse1.png)
+![](https://blogimages-1253307164.cos.ap-shanghai.myqcloud.com/diffuse1.png)
 
 
 通过上面的效果可以看到，会有一些锯齿
@@ -241,7 +241,7 @@ Shader "Unlit/Study_3"
 
 ```
 
-![](http://ophmqxrq8.bkt.clouddn.com/diffuse2.png)
+![](https://blogimages-1253307164.cos.ap-shanghai.myqcloud.com/diffuse2.png)
 
 通过效果图可以看出，现在表现的比较平滑，并没有锯齿了，但是可以法线，在光无法到达的地方模型外观是全黑的，没有任何明暗变化，所以下面一起看一下 **半兰伯特光照模型**
 
@@ -249,7 +249,7 @@ Shader "Unlit/Study_3"
 
 > 公式
 
-![](http://ophmqxrq8.bkt.clouddn.com/diffuse4.png)
+![](https://blogimages-1253307164.cos.ap-shanghai.myqcloud.com/diffuse4.png)
 
 
 使用 逐像素中的片元着色器代码，套用半兰伯特公式
@@ -271,7 +271,7 @@ float4 frag(v2f i): SV_Target{
 
 对比一下效果图，左一是逐顶点漫反射光照，中间是逐像素漫反射光照，最右边是半兰伯特光照模型
 
-![](http://ophmqxrq8.bkt.clouddn.com/diffuse3.png)
+![](https://blogimages-1253307164.cos.ap-shanghai.myqcloud.com/diffuse3.png)
 
 
 *本文所写内容参考《UnityShader 入门精要》。*
